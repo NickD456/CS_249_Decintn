@@ -1,4 +1,4 @@
-package edu.realemj.exercises00;
+package edu.decintn.exercises00;
 
 public class NPC {
     public final double PI = 3.14;
