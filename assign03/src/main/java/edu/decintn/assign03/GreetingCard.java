@@ -3,7 +3,6 @@ package edu.decintn.assign03;
 public class GreetingCard {
 
     private static int maxWidth = 50;
-    private static int maxLines = 5;
     private String[] line;
     private char boundaryChar;
 
@@ -27,7 +26,7 @@ public class GreetingCard {
         for(int i = 0; i < size; i++)
         {
             sb.append(line[i]);
-            sb.append("/n");
+            sb.append("\n");
         }
 
         return sb.toString();
@@ -56,7 +55,9 @@ public class GreetingCard {
         for (int i = 0; i < maxWidth; i++)
         {
             boundaryLine.append(boundaryChar);
+
         }
+        boundaryLine.append("\n");
 
         return boundaryLine.toString();
 
@@ -83,7 +84,7 @@ public class GreetingCard {
         {
             centeredLine.append(boundaryChar);
         }
-        centeredLine.append("/n");
+        centeredLine.append("\n");
 
         return centeredLine.toString();
 
@@ -100,7 +101,7 @@ public class GreetingCard {
         {
             if(!greeting.isEmpty())
             {
-                greeting.append("/n");
+                greeting.append("\n");
             }
 
             greeting.append(generateBoundaryLine());
@@ -111,10 +112,28 @@ public class GreetingCard {
             if (linesLeft < 5)
             {
                 lineCount = linesLeft;
-
-
+                extraLineCount = 5 - linesLeft;
             }
+            else
+            {
+                lineCount = 5;
+                extraLineCount = 0;
+            }
+
+            for (int j = 0; j <lineCount; j++)
+            {
+                greeting.append(generateCenteredLine(line[i+j]));
+            }
+
+            for (int j = 0; j < extraLineCount; j++ )
+            {
+                greeting.append((generateBoundaryLine()));
+            }
+
+            greeting.append(generateBoundaryLine());
+            greeting.append(generateBoundaryLine());
         }
+        return greeting.toString();
 
     }
 
