@@ -33,6 +33,25 @@ public class Box {
 
     public void draw(GameBoard s)
     {
+        for (int row = startingRow; row <= endingRow; row++)
+        {
+            for (int col = startingCol; col <= endingCol; col++)
+            {
+                if (isFilled)
+                {
 
+                    s.setPos(row, col, drawChar);
+                }
+                else
+                {
+                    // Outline the box
+                    if (row == startingRow || row == endingRow || col == startingCol || col == endingCol)
+                    {
+                        s.setPos(row, col, drawChar);
+
+                    }
+                }
+            }
+        }
     }
 }

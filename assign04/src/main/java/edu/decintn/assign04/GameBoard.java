@@ -9,27 +9,18 @@ public class GameBoard {
     public GameBoard(int rowCnt, int colCnt, char fillChar)
     {
         charArray = new char[rowCnt][colCnt];
-
-        for(int row = 0; row < charArray.length; row++)
-        {
-            for(int col = 0; col < charArray[row].length; col++)
-            {
-                charArray[row][col] = fillChar;
-                arrayCol = col;
-            }
-            arrayRow = row;
-        }
-        arrayRow = arrayRow + 1;
-        arrayCol = arrayCol + 1;
+        arrayRow = rowCnt;
+        arrayCol = colCnt;
         this.fillChar = fillChar;
+        clear();
 
     }
 
     public void clear()
     {
-        for(int row = 0; row < charArray.length; row++)
+        for(int row = 0; row < arrayRow; row++)
         {
-            for(int col = 0; col < charArray[row].length; col++)
+            for(int col = 0; col < arrayCol; col++)
             {
                 charArray[row][col] = fillChar;
             }
@@ -61,7 +52,7 @@ public class GameBoard {
 
     public char getPos(int row, int col)
     {
-        if (row >= 0 && row < arrayRow && col >= 0 && col < arrayCol)
+        if (isValidPosition(row, col))
         {
             return charArray[row][col];
         }
@@ -73,7 +64,7 @@ public class GameBoard {
 
     public boolean setPos(int row, int col, char c)
     {
-        if (row >= 0 && row < arrayRow && col >= 0 && col < arrayCol)
+        if (isValidPosition(row, col))
         {
             charArray[row][col] = c;
             return true;
@@ -95,9 +86,9 @@ public class GameBoard {
     public String getBoardString()
     {
         StringBuilder sb = new StringBuilder();
-        for(int row = 1; row <= charArray.length; row++)
+        for(int row = 0; row < arrayRow; row++)
         {
-            for(int col = 1; col <= charArray[row].length; col++)
+            for(int col = 0; col < arrayCol; col++)
             {
                 sb.append(charArray[row][col]);
             }
