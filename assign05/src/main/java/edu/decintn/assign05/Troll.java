@@ -2,12 +2,18 @@ package edu.decintn.assign05;
 
 public class Troll extends Giant {
 
-    public Troll(String name) {
+    public Troll(String name)
+    {
         super(name);
     }
 
     public String toString()
     {
-        return "Troll " +
+        return "Troll " + super.toString();
+    }
+
+    public String cook()
+    {
+        return "Mutton again...";
     }
 }
