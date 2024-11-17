@@ -1,10 +1,10 @@
 package edu.decintn.assign04;
 
 public class GameBoard {
-    public char fillChar;
+    private char fillChar;
     private char[][] charArray;
-    public int arrayRow;
-    public int arrayCol;
+    private int arrayRow;
+    private int arrayCol;
 
     public GameBoard(int rowCnt, int colCnt, char fillChar)
     {
