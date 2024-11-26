@@ -4,5 +4,5 @@ import java.util.Scanner;
 
 public interface Loadable {
 
-    public abstract void load(Scanner input) throws GameFileException;
+    public void load(Scanner input) throws GameFileException;
 }

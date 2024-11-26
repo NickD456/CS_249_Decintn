@@ -2,7 +2,7 @@ package edu.decintn.assign06;
 
 import java.util.Scanner;
 
-public class Item {
+public class Item implements Loadable {
     private String ID = "";
     private int value = 0;
 
@@ -44,6 +44,17 @@ public class Item {
 
     public void load(Scanner input) throws  GameFileException
     {
+        try
+        {
+            ID = input.next();
+            value = input.nextInt();
+        }
+        catch(Exception e)
+        {
+            ID = "";
+            value = 0;
+            throw new GameFileException("Error loading Item", e);
+        }
 
     }
 
