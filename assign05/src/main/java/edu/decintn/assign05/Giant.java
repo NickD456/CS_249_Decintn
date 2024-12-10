@@ -1,7 +1,7 @@
 package edu.decintn.assign05;
 
 public class Giant {
-    public String giantName;
+    private String giantName;
 
     public Giant(String name)
     {
